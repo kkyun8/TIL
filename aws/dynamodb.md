@@ -1,8 +1,12 @@
 # DynamoDB
 
-* https://alphahackerhan.tistory.com/39
-* https://www.youtube.com/watch?v=DIQVJqiSUkE&feature=youtu.be
-
+* 参考
+  * https://alphahackerhan.tistory.com/39
+  * https://www.youtube.com/watch?v=DIQVJqiSUkE&feature=youtu.be
+  * https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/bp-modeling-nosql-B.html
+  * https://skout90.github.io/2020/03/25/etc/dynamo-db-architecture-best-practice/
+  * https://changhoi.github.io/posts/backend/dynamodb-single-table-design/
+  
 * NoSQL・DynamoDBはMysqlのようなRDBMSと概念が全く違う。
 * 自分も最初かなり迷ったのでTILにまとめて記入しておく。
 
