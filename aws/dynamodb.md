@@ -102,8 +102,98 @@ RDBMSのようなテーブルの関係を決める
 
 3. Secondary index + Query
 
-TODO:
+PK+SKで取得できないものがあったら、Secondary indexを追加して使う。
+
+SIを作成する時には、PKをSKに、SKをPKにする形にする方法なら（Inverted Index）、RDBMSのJOINみたいな動きでさまざまデーターを取得することができる。
+
+* Inverted Indexを利用すれば、ひとつのテーブルでPK, SK, Secondary indexでPre-aggregatedされた内容をJoinなしで高性能で得ることができる
+
 
 ## Filtering
 
-TODO:
+PK、SK、SIで取れないデーターを取得しないといけない時があると、Scanはいい方法ではない。
+
+DynamoDBのFilteringExpressionがどうやって動くのかを見ルト
+
+1. テーブルでアイテム全部読み込み
+1. 全アイテムをメモリにロードしたら、DynamoDBはユーザーが定義したFilterExpressinがあるか確認する。
+1. FilterExpressinがあったら、フィルタリングする。
+1. Return
+
+* 問題は１番、DynamoDBで一回で取得可能なデーターのサイズは1MB。
+* リクエストを最小限にしたほうがいい。Scanはやめよう
+* フィルタリングされたデーターをPKかSIを使って読み込めるようにしたほうがいい。
+ 
+<b>フィルタリングアクセスパターンをKeyかIndexを使って読み込みする方法は以下の３パターンである。</b>
+
+1. Primary Key
+1. Composite sort key
+1. Sparse index
+
+***
+
+### 1. ユーザーの全てのオーダーを読み込む。 -> Primary Key
+
+SQLで表現したら以下のもの。
+ 
+```
+SELECT * FROM orders WHERE username = 'alexdebrie'
+```
+
+ここはPK=ユーザー、SK=オーダーで以下のように使える。
+ 
+```
+"PK=USER#alexdebrie AND BEGINS_WITH(SK, 'ORDER#')"
+```
+
+### 2. ユーザーの特定なステータスの注文を読み込む。-> Composite Sort Key
+
+SQLで表現したら以下のもの。
+
+```
+SELECT * FROM orders WHERE username= 'alexdebrie' AND status='shipped' 
+```
+
+テーブルでは、"status" attributeには Primary Keyか Secondary indexで直接接近ができない。
+
+そして、ステータスが同じになっても、Partition Keyが違うことがあるので、
+Primary KeyかSecondary indexを使ったデーターにFilter expressionを適用することも難しい。
+ 
+こういう場合、Composite sort keyを使える。
+ 
+* Composite sory keyを作る方法は、既存の２つ、２つ以上のattributeを結合して、結合したものをGlobal Secondary Index(GSI)を使ってSory Keyにすればいい。
+
+1. statusとcreatedAtを結合して OrderStatusDate attributeを追加。
+1. GSIを利用して、OrderStatusDateをSKにする。
+
+そうすると、GSIでSKみたいな構成ができるため、以下のようなQueryが可能
+
+```
+"PK=USER#alexdebrie AND BEGINS_WITH(OrderStatusDate, 'Shipped#')"
+```
+
+* CreateAt attributeをComposite Keyにしたため、日付もフィルタリングの条件になる。
+
+### 3. ユーザーの新しいオーダーを読み込み。-> Sparse Key
+ 
+
+既存のPK、SKと関係せず、特定のattributeを基準でアイテムをフィルタリングしたい場合である。
+
+例えばSQLだと以下のもので、orders.statusがplacedになってるものがテーブルの中で一部で、ここに対するKeyを作ることでSparse Keyである。
+
+```
+SELECT * FROM orders WHERE status='placed'
+```
+
+SQLみたいにstatusがPLACEDになってるアイテムだけを取得したいなら、PlacedIdというattributeを作成して、
+
+GSIに使えるようにUniqueなValueを設定する。
+
+Sparse Keyで作ったGSIテーブルは、原本テーブルのSubsetであるし、"特定attribute"に対する"特定のValue"を対象にして作ったので、
+
+そのサイズが小さいことを予想できる。
+
+それで該当IndexでScanを行うことも考える。
+
+
+
