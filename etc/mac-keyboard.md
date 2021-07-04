@@ -64,8 +64,28 @@
 
 日本で売ってない
 
+## 結論
 
-Keychron or Varmilo or Realforce
+### 注文完了：Keychron k6（Aliexpress注文）red switch
+
+~~注文した日から１ヶ月後届く~~
+
+理由
+1. MacUS配列
+   1. HhkdはUnixなので慣れないと使えない
+   1. Mac専用は意外と少ない
+1. Bluetoothキーボード
+   1. Realforceは有線が多い
+1. どこでも使える小さいサイズ
+   1. テンキーなし、F1~F12なし
+1. 値段
+   1. Aliで13000円ぐらい、調査してみたらこの値段より高いキーボードが多かった
+
+そしてデザインがいい。
+
+### でも評価（値段、Unix配列は問題）がすごく良かったhappy hacking keyboardをいつか買おう。。
 
 
+
+ 
 
