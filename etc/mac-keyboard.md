@@ -68,8 +68,6 @@
 
 ### 注文完了：Keychron k6（Aliexpress注文）red switch
 
-~~注文した日から１ヶ月後届く~~
-
 理由
 1. MacUS配列
    1. HhkdはUnixなので慣れないと使えない
