@@ -14,5 +14,13 @@
     * https://aws-exam.net/clf/
     * https://aws.koiwaclub.com/
   * kindle unlimited
+    * 評価がいい本を先にみよう 
   
 * 実務用（資格を取ったらやってみる）
+  * https://www.amazon.co.jp/dp/4798163430/?coliid=I2ML49D0R02SBC&colid=2Y5DTNMP3L71E&psc=1&ref_=lv_ov_lig_dp_it
+  * いくつかのパターンを勉強しよう
+
+### 本＋問題集で問題をよくみよう
+
+* できれば短期間で、１ヶ月以内に試験を受けよう
+* まず資格を取ってから実務用を勉強しよう
