@@ -2,10 +2,61 @@
 
 なんとなくわかっていたものを整理しよう
 
+## @NoArgsConstructor VS @AllArgsConstructor VS @RequiredArgsConstructor 
+
+https://ksshlee.github.io/spring/java/lombok/
+<!--
+Lombok을 사용하면 생성자도 자동으로 생성할 수 있습니다. 
+@NoArgsConstructor 어노테이션은 파라미터가 없는 기본 생성자를 생성해주고, 
+@AllArgsConstructor 어노테이션은 모든 필드 값을 파라미터로 받는 생성자를 만들어줍니다. 마지막으로 
+@RequiredArgsConstructor 어노테이션은 final이나 @NonNull인 필드 값만 파라미터로 받는 생성자를 만들어줍니다.
+
+
+@NoArgsConstructorPermalink
+parameter가 없는 기본 생성자를 생성해준다.
+AccessLevel을 통하여 접근제한자를 지정할수 있다.
+권장 사용법Permalink
+@NoArgsConstructor(access = AccessLevel.PROTECTED)를 사용하여 객체 생성시 안전성을 보장해주는것을 권장한다.
+기본 생성자를 public(default)로 열어두면 안전성이 심각하게 저하된다.
+@RequiredArgsConstructor (사용 금지 권장)Permalink
+final 혹은 @NonNull인 변수만 parameter로 받는 생성자를 생성해준다.
+AccessLevel을 통하여 접근제한자를 지정할수 있다.
+
+```java
+@NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
+public class User {
+  private Long id;
+  @NonNull
+  private String username;
+  @NonNull
+  private String password;
+  private int[] scores;
+}
+```
+
+
+```java
+public static class User{
+  private String pwd;
+  private String id;
+
+  @Builder
+  public User(String pwd, String id){
+    this.pwd = pwd;
+    this.id = id;
+  }
+}
+
+User user = User.builder().pwd("userPwd").id("userId").build();
+```
+--> 
+
 ## @Autowired VS @Resource VS @Inject
 
-* 実はAutowiredを使うのはお勧めしてない（InteliJで警告）か、現場では　Repository DIによく使ってる
-
+* よく使われてるAutowiredは、実はあんまりお勧めしてない（InteliJでも警告）
+   * https://yaboong.github.io/spring/2019/08/29/why-field-injection-is-bad/
 <!--
 @Autowired VS @Resource VS @Inject
 앞서 확인했던 내용을 하나의 표로 정리하면 다음과 같습니다.
