@@ -23,26 +23,84 @@
 * ブラウザストレージ（Web Storage）について説明してください。
    * 基本Key、Valueで保存
    * sessionStorage：ページのセッション中(ページの再読み込みや復元を含む、ブラウザーを開いている間) に使用可能な「オリジン　URL」ごとに区切られた保存領域を管理する。
-      * 「データー」は「ブラウザ」または「タブ」が閉じられるまで保存される。再読み込みでも保存できる。つまり、＊「オリジン」でデーター共有はできない。
+      * 「データー」は「ブラウザ」または「タブ」が閉じられるまで保存される。再読み込みでも保存できる。つまり、「オリジン」でデーター共有はできない。
       * サイズがクッキーより大きい（５MB）
    * localStorage：基本的な動きはsessionStorageと似てるか以下のところが違う。
-      *　「有効期限なし」 でデーターを保存する。
-      *　「データー」は「ブラウザ」または「OS」が再起動されても保存される。新しいタブで保存データーの確認・変更　ができる、つまり、＊「オリジン」でデーター共有する。
-      *　サイズがストレージの中で一番大きい
+      * 「有効期限なし」 でデーターを保存する。
+      * 「データー」は「ブラウザ」または「OS」が再起動されても保存される。新しいタブで保存データーの確認・変更　ができる、つまり、＊「オリジン」でデーター共有する。
+      * サイズがストレージの中で一番大きい
    * localStorageとcookieの違い
       * localStorageはリクエストでサーバーに送信しない。
       * サーバー側がHTTPヘッダーでストレージObjectを操作できない。 
       * localStorageの操作はJS内で制御する。
 
-<!--
 * Javascript thisについて説明してください。
-  * 
-자바스크립트 this란?
-ex) 화살표 함수, call, bind, apply 등
+  * 基本js（ブラウザー内）のthis = windows
+  * 関数functionの場合、ThisはグローバルオブジェクトGlobal objectを対象にする。
+    *　これは　objectの中に, functionの中に setTimeoutみたいなcallBackにも同じ
+  * しかし、objectのvalueで宣言された関数の場合、thisは親になるobjectを対象にする
+
+
+```javascript
+var value = 1;
+
+var obj = {
+  value: 100,
+  foo: function() {
+    var that = this;  // Workaround : this === obj
+
+    console.log("foo's this: ",  this);  // obj
+    console.log("foo's this.value: ",  this.value); // 100
+    function bar() {
+      console.log("bar's this: ",  this); // window
+      console.log("bar's this.value: ", this.value); // 1
+
+      console.log("bar's that: ",  that); // obj
+      console.log("bar's that.value: ", that.value); // 100
+    }
+    bar();
+  }
+};
+
+obj.foo();
+```
+
+* this、バインディングする apply call bindメソッドを使う + arguments
+  * arguments オブジェクトはすべての（アローではない）関数内で利用可能なローカル変数。　
+  * arrayににってるかarrayではない。関数のパラメーターを参照できる。
+    * func.call(context, ...args)
+    * func.apply(context, args)
+
+
+```javascript
+var value = 1;
+
+var obj = {
+  value: 100,
+  foo: function() {
+    console.log("foo's this: ",  this);  // obj
+    console.log("foo's this.value: ",  this.value); // 100
+    function bar(a, b) {
+      console.log("bar's this: ",  this); // obj
+      console.log("bar's this.value: ", this.value); // 100
+      console.log("bar's arguments: ", arguments);
+    }
+    bar.apply(obj, [1, 2]);
+    bar.call(obj, 1, 2);
+    bar.bind(obj)(1, 2);
+  }
+};
+
+obj.foo();
+```
+
+<!--
+
 자바스크립트 이벤트 관리 방법? 보통 어떤 식으로 이벤트를 설계해야 하는지?
 ex) 이벤트 캡처링 & 버블링
 ex) 이벤트 등록 & 해제
 ex) 이벤트 위임 방식 등
+
 자바스크립트 비동기 처리에 대한 설명
 ex) 콜백, 프로미스, async await
 ex) 비동기 처리의 특성 및 에러 처리 방법?
