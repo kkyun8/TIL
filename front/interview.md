@@ -98,7 +98,7 @@ obj.foo();
   * [JavaScript Event](../javascript/event.md)
 
 * Javascript 非同期について説明してください。
-
+  * [JavaScript Async](../javascript/async.md)
 <!--
 자바스크립트 비동기 처리에 대한 설명
 ex) 콜백, 프로미스, async await
