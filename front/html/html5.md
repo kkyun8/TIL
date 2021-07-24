@@ -15,15 +15,19 @@ Multimedia, Graphics, Device acess, Semantics, Storage, CSS3...　HTML5の登場
 
 ## Semantic Webとは
 
-エンジニアが作成した要素の意味が明確にわかるように作成する方法。
+* エンジニアが作成した要素の意味が明確にわかるように作成する方法。
+* ブラウザー、検索エンジン、エンジニアみんなにコンテンツの意味を明確に説明する役割
 
 よりわかりやすいコードになるし、SEOWebの検索エンジンの最適化であるWebが作れる。
 
-* 登場背景：Webの検索エンジンの最適化のため、 
-
+* 登場背景：Webの検索エンジンの最適化のため
+  * EX：検索エンジンのクローラーではh1タグをタイトルで認識するので、div、pなどのタグではなくタイトルを作成せずh1タグにすること
+ 
+ 
+HTML要素はnon-semantic要素、semantic要素に区別できる
 * non-semantic
-  * div, span... contentについて説明しない
+  * div, span... <b>contentについて説明しない</b>
 * semantic
-  * form, table, img... contentの意味を明確に説明する
-
-
+  * form, table, img... <b>contentの意味を明確に説明する</b>
+* HTML5で追加されたsemantic
+  * header, nav, aside, section, article, footer
