@@ -57,10 +57,15 @@ https://medium.com/witinweb/vue-js-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4
     * EventListener、reactive subscriptionを削除する作業におすすめ 
   * destroyed
     * Vue Instanceが解体された直後に呼び出される
-<!--
-### VuejsのLife-cycleについて説明してください。
 
 ### VuejsでDOMはどの時点で生成されるのか
+
+* beforeMountとmountedの間
+
+<!--
+＊V3
+V3でComposition API 
+
 
 ### Computed vs Methodsの違いについて説明してください。
 
