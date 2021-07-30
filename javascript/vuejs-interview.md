@@ -11,7 +11,7 @@ TODO:
 -->
 
 
-## Vuejs関連質問まとめ
+## Vuejs V2 関連質問まとめ
 
 ### Vuejsを全く知らない人に、Vuejsについて、Vuejsの良いところと悪いところについて説明してください。
 
@@ -28,6 +28,35 @@ TODO:
     * この問題を解決するため、Vue3でバージョンアップした
   * コンポーネントごとにCSSをかけるか、全体的な構成をみるとコンポーネント内にCSSを書くのはあんまり良くない
 
+### VuejsのLife-cycleについて説明してください。
+
+https://medium.com/witinweb/vue-js-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-7780cdd97dd4
+
+＊V2の場合
+
+* Creation 初期化、コンポーネントがDOMに追加される前
+  * beforeCreate
+    * data、 events(vm.$on, vm.$once, vm.$off, vm.$emit)がセッティングされてない時点
+  * created
+    * data、 events(vm.$on, vm.$once, vm.$off, vm.$emit)がセッティングされてる
+    * template、仮想DOMはまだMount,Renderingされてない時点
+* Mounting DOM設定
+  * beforeMount
+    *　初回レンダリングが発生する前の直前に実行される 
+  * mounted
+    * コンポーネント、テンプレート、レンダリングされたDOMに接近できる
+    * ※Mountedだけは、親子実行順番が特別。ChildのMountedが終わったら、ParentのMountedが実行される
+* Updating　DIFF・再レンダリング
+  * beforeUpdate
+    * コンポーネントのデーターが変換され、update cycleがはじまる場合呼びだされる
+  * updated
+    * 再レンダリングが終わった後に実行される
+* Destruction　解体段階
+  * beforeDestroy
+    * Vue Instanceが解体される直前に呼び出される
+    * EventListener、reactive subscriptionを削除する作業におすすめ 
+  * destroyed
+    * Vue Instanceが解体された直後に呼び出される
 <!--
 ### VuejsのLife-cycleについて説明してください。
 
