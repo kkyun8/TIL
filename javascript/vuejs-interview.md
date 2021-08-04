@@ -62,6 +62,18 @@ https://medium.com/witinweb/vue-js-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4
 
 * beforeMountとmountedの間
 
+### Virtual DOMについて説明してください。DOMと違うところと、なぜVirtual DOMを使うのか説明してください。
+
+* DOM（Document Object Model）は基本的にHTMLマークアップとHTML要素のためのオブジェクトで構成されてます。このオブジェクトはTree構造になってますが、ブラウザはこの構造をWebページをローディングする際に作ります。
+* Webアプリケーションの規模が大きくなると、DOMを直接制作することは、時間がかかるし、非効率的になるので VirtualDOMを使います。
+* VirtualDOMでWebアプリケーションを構成するとDOM（Html、CSS）を仮想（Javascript）で作成することができ、Webアプリケーションを効率的に管理できます。
+
+
+* VirtualDOMの目的
+  * DOMをよく変更するとパフォーマンスが悪くなるので、VirtualDOMで変更が必要なところだけ変更してパフォーマンスをよくする
+  * 軽く、効果的にVirtualDOMとDOMの差異を計算するために利用する
+
+
 <!--
 ＊V3
 V3でComposition API 
