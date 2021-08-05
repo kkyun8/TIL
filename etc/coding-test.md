@@ -25,3 +25,13 @@
     * 数字パラメーターなら、最大数字が与えられた場合
 
 * 役に立つ計算式は覚えておくこと
+
+### 練習・企業からテスト実施依頼がくるサイト
+
+* 英語
+  * https://app.codility.com/programmers/
+  * https://www.hackerrank.com/dashboard
+* 日本
+  * https://paiza.jp
+* 韓国
+  * https://programmers.co.kr/
