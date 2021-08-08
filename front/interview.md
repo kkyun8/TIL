@@ -42,6 +42,12 @@
 
 * Javascript 非同期について説明してください。
   * [JavaScript Async](../javascript/async.md)
+  
+* TODO
+  * Javascript クローザーについて説明してください。
+  * Javascript Event Loopについて説明してください。
+  * Javascript async await の例外処理について
+  * javascript garbage collectionについて説明してください。
 
 <!--
 자바스크립트 비동기 처리에 대한 설명
@@ -63,5 +69,5 @@ display:none vs ...
 
 ..Date객체는 실제시간보다 늦는데 moment를 쓰면 대응할수있다 그이유는?
 
-
 -->
+
