@@ -37,7 +37,7 @@ function outer(){
 
 var innerFunc = outer();
 innerFunc();
-```
+```javascript
 
 
 
@@ -47,3 +47,42 @@ innerFunc();
 4. でもinnerFunc>>innerでnameが可能、可能なのはクロージャが環境全てを覚えるようにしてるため
 
 ### クロージャのカプセル化
+
+* クロージャを利用したらまるでPrivateみたいな形ができる
+
+```javascript
+function student(name, score){
+  // var name = name, score = score;
+  return {
+    setScore: function(_score){
+      score = _score;
+    },
+    getInfo: function(){
+      return { name:name, score:score };
+    }
+  }
+}
+
+var lee = student("sunsin", 80);
+var kim = student("yusin", 75);
+
+lee.setScore(60);
+
+console.log(lee.getInfo()); // { name: 'sunsin', score: 60 }
+console.log(kim.getInfo()); // { name: 'yusin', score: 75 }
+```
+
+こういうふうにやると同一なStudent関数になってるけど、それぞれ独立でクロージャが作成される
+
+Closureを使ったらまるでシングルトーン見ないな関数の作成ができる
+
+### メモリ効率には良くない
+
+
+クロージャはスコープの中の変数がスコープ終了と同時に回収ができない。スコープの外側でいつでもその変数を呼び出す可能性があるため、Javascriptはその変数を「メモリに連続的に保存」する。
+
+なので、メモリに効率できな作業方法ではない。「回収できない特性」があるため、絶対に必要な場合に使うのがおすすめ。
+
+
+### なぜクロージャを使うのか？？
+
