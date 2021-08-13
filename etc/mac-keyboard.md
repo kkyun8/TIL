@@ -64,7 +64,7 @@
 
 日本で売ってない
 
-## 結論
+## 買うことにしたもの
 
 ### 注文完了：Keychron k6（Aliexpress注文）red switch
 
@@ -128,7 +128,23 @@
   * 英語配列は、Enter・Backspaceキーがキーボードの中央から近い利点がある。しばらく、英語配列の環境にしよう！
 
 
-これでしばらくKeychron K6を使ってみよう
+これでしばらくKeychron K6を使ってみよう。。と思ったが
+
+## 結果
+
+あ、実際にWinでKeychronK6は無理だった。。
+
+* 英語配列はいいか、6８キーで、すぐESCキーとか、home delボタンを使えないのが不便だった
+* bluetoothが早く切れることも問題
+
+なので安くてコスパいいもので、テンキーレスと86キー（home delがあるもの）を両方使ってみて、自分に会うやつを探すことにした。
+
+* EPOMAKER K870T 87キー
+* EPOMAKER EP84 84キー
+
+Amazon Primeなので返品も簡単だし、いいや。
+
+Keychronは失敗！
 
 ### そして色々確認した結果、Realforce For Macが一番いいキーボードだと思った。次はRealforceを買うことに決めた
  
