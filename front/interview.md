@@ -42,9 +42,12 @@
 
 * Javascript 非同期について説明してください。
   * [JavaScript Async](../javascript/async.md)
-  
+
+* Javascript クローザーについて説明してください。
+  * [JavaScript closure](../javascript/closure.md)
+
+
 * TODO
-  * Javascript クローザーについて説明してください。
   * Javascript Event Loopについて説明してください。
   * Javascript async await の例外処理について
   * javascript garbage collectionについて説明してください。
