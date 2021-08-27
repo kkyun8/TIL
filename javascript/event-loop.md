@@ -29,11 +29,15 @@ CallStackから受けた非同期処理関数（Callback）は、CallStackにい
 
 ## Task Queue（EventQueue）
 
-TODO
+WebAPIからうけだCallback関数が待機しているところ
 
 ## EventLoop
 
-TODO
+```
+event loop のコンセプトは非常にシンプルです。無限ループで JavaScript エンジンはタスクを待機し、それらを実行し、また次のタスクを待機します。
+```
+
+TaskQueueにある関数（Event）をJSエンジンに渡す。
 
 
 
