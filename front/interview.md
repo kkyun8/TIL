@@ -36,21 +36,78 @@
 
 * Javascript thisについて説明してください。
   * [JavaScript This](../javascript/javascript-this.md)
+  * 一般的ににBrowser-siceではwindow、Server-side(Node.js)ではglobalオブジェクト
+  * 基本的にGlobalObjectにバインディングされる
+    * 例外：objectの内部「関数」のthisは、必ず「Global」になる、親のObjectではない！
+  * thisを指摘するために、apply call bindを使おう
 
 * Javascript Eventについて説明してください。
   * [JavaScript Event](../javascript/event.md)
 
 * Javascript 非同期について説明してください。
   * [JavaScript Async](../javascript/async.md)
+  * 同期：タスクを順番で処理、非同期：タスクが完了されるまで待たずに、次のタスクを実行
+    *　非同期Callback関数の問題点を解決するため、改善するためにPromiseを使う。 
 
 * Javascript クローザーについて説明してください。
   * [JavaScript closure](../javascript/closure.md)
+  * 内部関数が、外部関数のコンテキストに接近できることをいう。「外部関数の変数に接近できる内部関数」
+  * キャプセル化などができるか、メモリ問題がある
+
+* Javascript Event Loopについて説明してください。
+  * [JavaScript Event Loop](../javascript/event-loop.md)
+  * （Call Stack）で現在実行中タスクがあるか、実行を待機してるタスク（Event Queue）があるかずっと確認して（Call Stack）が空いてるならEvent Queue → taskを Call Stackに移動し、実行される
+
+* javascript garbage collectionについて説明してください。
+  * [JavaScript Garbage Collection](../javascript/garbage-collection.md)　＊未作成
+  * 「接近できない」、「到達できない」オブジェクトはGarbageCollectionがメモリ上で削除する
+    * GarbageCollectionはエンジンが自動に動く
+
+* javascript var let constの違いは？
+  * varとletは変更が可能なオブジェクト、constは変更不可
+  * varは「function-scoped」, let・const「block-scoped」
+    * let・const「block-scoped」はhoistingが発生しない。２回宣言不可（let i = 1 let i = 1）
+    * varはhoisting発生２回宣言可（「i = 1 var i」、「var i = 1 var i = 1」）
 
 
-* TODO
-  * Javascript Event Loopについて説明してください。
-  * Javascript async await の例外処理について
-  * javascript garbage collectionについて説明してください。
+
+## ★★★実務関連質問：７割ぐらい答えられる内容
+
+* フロントエンドビルドシステムについて説明してください。
+  * Babel
+  * Polyfil
+  * Node.js
+  * NPM
+  * ESlint
+  * Prittier
+  * Web task manager
+
+* Webpackとは？
+* よく使ったJSフレームワークは？
+  * Vue.jsと関連した面接質問
+    * [Vue.js 質問](../javascript/vue/vuejs-interview.md)
+* フロントエンドパフォーマンスチューニングの経験があるのか？
+* Virtual DOMについて説明してください。
+* CI・CDの経験はありますか？
+* Unitテストの経験はありますか？
+* Sementicとは？
+
+## ★★★その他の質問：必須ではないか、わかってあればいい内容
+* サービスの改善のためやったことは？
+* よくわからないAPI、文法があったらどうやって調査するのか
+* 他のチームとどうやってやりとりしてるのか
+* 仕事で必要な知識を共有した経験はありますか
+* 新しく学んだ開発知識はどうやって整理するのか
+
+## 基本的に準備しないといけない質問：基本的に答えられる内容（準備ができてる内容）
+* このポジションでエントリーした理由
+  * 
+* エントリーしたポジションの仕事について調査・理解しましたか？
+  * 
+* 職務で期待するところと自分が活躍できるとことは？
+  * 
+
+
 
 <!--
 자바스크립트 비동기 처리에 대한 설명
