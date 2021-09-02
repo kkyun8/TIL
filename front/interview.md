@@ -37,12 +37,16 @@
 * Javascript thisについて説明してください。
   * [JavaScript This](../javascript/javascript-this.md)
   * 一般的ににBrowser-siceではwindow、Server-side(Node.js)ではglobalオブジェクト
-  * 基本的にGlobalObjectにバインディングされる
+  * 「関数をどうやって呼び出したかによってthisが決定される」。基本的にGlobalObjectにバインディングされる
     * 例外：objectの内部「関数」のthisは、必ず「Global」になる、親のObjectではない！
   * thisを指摘するために、apply call bindを使おう
 
 * Javascript Eventについて説明してください。
   * [JavaScript Event](../javascript/event.md)
+  * event Bubbling：画面でEventが発生し、発生した要素の「上位要素」にEventが電波されること。
+  * event Capture：Bubblingと反対、画面でEventが発生し、発生した要素の「最上位要素」がEventが発生した「要素」を探すこと。
+    * addEventListener() に { capture:true } オプションをつけたら動作する。
+  * event Delegation：上位要素が下位要素のEventを管理・検知すること。
 
 * Javascript 非同期について説明してください。
   * [JavaScript Async](../javascript/async.md)
@@ -90,7 +94,7 @@
 * Virtual DOMについて説明してください。
 * CI・CDの経験はありますか？
 * Unitテストの経験はありますか？
-* Sementicとは？
+* html semantics tagsとは？
 
 ## ★★★その他の質問：必須ではないか、わかってあればいい内容
 * サービスの改善のためやったことは？
