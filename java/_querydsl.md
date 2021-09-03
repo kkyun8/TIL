@@ -1,5 +1,13 @@
 # SpringBootQuery条件でQueryDslを使ってみよう
 
+https://querydsl.com/static/querydsl/4.0.1/reference/ko-KR/html_single/#creating_queries
+
+https://joont92.github.io/jpa/QueryDSL/
+
+https://ict-nroo.tistory.com/117
+
+https://velog.io/@kangsan/%EC%82%AC%EB%82%B4-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-Dynamic-Query-%EC%A0%81%EC%9A%A9%EA%B8%B0
+
 ## 概要
 
 JPAの条件を動的に使いたいと思って、「Specification」と「QueryDsl」を比較してみた
