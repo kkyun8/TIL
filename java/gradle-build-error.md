@@ -6,6 +6,12 @@
 
 Gradleビルドができない場合、SpringBootのアノテーションが動かない場合に実行してみよう。
 
+### javaファイル認識ができない場合
+
+* SourceRoot再設定設定
+    * https://pleiades.io/help/idea/content-roots.html
+* File >> Project Structure >> Project Setting/Modules がちゃんと設定されてるか確認
+
 ### Gradle Refresh
 
 IntelliJ->Gradle Tab->Refresh
