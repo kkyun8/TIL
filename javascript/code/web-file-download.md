@@ -23,3 +23,29 @@ await axios.get('/get', params, {
  link.click();
 })
 ```
+## BLOBのURLをメモリ上で削除する
+
+
+ダウンロード用のURLなので、またURLを使うことはない。URLがメモリに残ってしまうので、即時削除する。
+
+
+```javascript
+.
+.
+.
+ // response data -> createObjectURL
+ link.href = window.URL.createObjectURL(blob);
+ 
+ // ファイル名設定、普段レスポンスに含まれてるファイル名で設定
+ link.download = 'file';
+ 
+ // ブラウザーでダウンロード
+ link.click();
+ 
+ // ブラウザーメモリでURLを削除
+ URL.revokeObjectURL(link.href)
+})
+.
+.
+.
+```
