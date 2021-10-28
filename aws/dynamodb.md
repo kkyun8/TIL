@@ -200,4 +200,12 @@ Sparse Keyで作ったGSIテーブルは、原本テーブルのSubsetである�
 それで該当IndexでScanを行うことも考える。
 
 
+## dynamodbをRESTAPIで使う
+
+
+* api gatewayとlambdaを使ってRESTAPIを作ろ。
+* https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/http-api-dynamo-db.html#http-api-dynamo-db-create-routes
+* セキュリティーのためにgatewayを使うのがいい。構築はそんなに難しくない。
+* dynamodbを使うなら　MysqlみたいなRDBMS構築に時間がかからなくて良い。ただし、dynamodbが必ずいいとは言えないので、どのDBを使った方がいいのかはちゃんと考えて作ろう
+
 
