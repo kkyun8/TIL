@@ -6,5 +6,7 @@ docker-compose up した後、docker loadすると適用できる（application.
 
 
 * jarを適応したいならimage作成（save load）
+  * docker save imagename > file.tar
+  * docker load file.tar  
 * プロパティ適応はコンテナ作成
 
