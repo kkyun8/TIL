@@ -16,5 +16,11 @@ git pull origin pull/{PR NUMBER}/head:{BRANCH NAME}
 git checkout -t origin/BRANCH_NAME
 ```
 
+## Delete Untracked files
+
+```bash
+# commit & add されてないローカルファイルを削除
+git clean -df
+```
 
 
